@@ -32,5 +32,5 @@
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/EcoScan.git
+git clone https://github.com/hi-ashup/EcoScan--Intelligent-Waste-Classifier.git
 cd EcoScan

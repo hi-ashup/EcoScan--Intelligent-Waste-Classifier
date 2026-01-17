@@ -45,13 +45,14 @@ if st.session_state.analysis is None:
         st.session_state.scanned_img = Image.open(img_input)
         
         # Display Scanning Animation
-        st.markdown("""
-        <div class="scan-container">
-            <div class="scan-line"></div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        st.image(st.session_state.scanned_img, use_column_width=True, caption="Scanning Object...")
+        if img_input:
+        st.session_state.scanned_img = Image.open(img_input)
+
+        # Creates a unified glass card for the preview
+        st.markdown('<div class="glass-container">', unsafe_allow_html=True)
+        st.image(st.session_state.scanned_img, use_container_width=True)
+        # We simulate the scanner overlay just below visually (limit of Python UI)
+        st.markdown('<div class="scan-bar"></div></div>', unsafe_allow_html=True)
         
         if st.button("CLASSIFY OBJECT"):
             with st.spinner("Accessing Neural Database..."):
